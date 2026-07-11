@@ -35,6 +35,36 @@
 </footer>
 
 <script src="script.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "sherry-project-1214.firebaseapp.com",
+  projectId: "sherry-project-1214",
+  storageBucket: "sherry-project-1214.firebasestorage.app",
+  messagingSenderId: "692003406873",
+  appId: "1:692003406873:web:e38c4b3806d963b5761688"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("registerBtn").onclick = () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Account created successfully!");
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+</script>
 
 </body><img src="images/banner.jpg" alt="Sherry Website Banner" width="100%">
 </htm</html><a href="login.html">Login</a>
