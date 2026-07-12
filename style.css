@@ -199,3 +199,30 @@ footer{
     padding:40px 20px;
     margin-top:40px;
 }
+.contact form{
+    max-width:500px;
+    margin:20px auto;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.contact button{
+    background:#0d6efd;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.contact button:hover{
+    background:#084298;
+}
