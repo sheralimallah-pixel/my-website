@@ -117,3 +117,27 @@ footer{
     font-size:18px;
     line-height:1.8;
 }
+.services{
+    background:#eef5ff;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.services h2{
+    color:#0d6efd;
+    margin-bottom:30px;
+}
+
+.service-box{
+    background:white;
+    width:300px;
+    margin:15px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.service-box h3{
+    color:#0d6efd;
+    margin-bottom:10px;
+}
