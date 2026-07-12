@@ -9,62 +9,45 @@
 </head>
 
 <body>
-
 <header>
-    <h1>Sherry Website</h1>
+  <h1>Sherry Website</h1>
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-    <a href="login.html">Login</a>
-    <a href="register.html">Register</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Register</a>
 </nav>
 
-<section class="hero"><!-- Update -->
-    <h2>Welcome to Sherry Website</h2>
-    <p>Build your future with us.</p>
+<section class="hero">
+  <h2>Welcome to Sherry Website</h2>
+  <p>The Unity of Business</p>
+  <a href="register.html" class="btn">Join Now</a>
+</section>
 
-    <a href="#" class="btn">Get Started</a>
+<section class="features">
+  <div class="box">
+    <h3>Fast Service</h3>
+    <p>Quick and reliable online services.</p>
+  </div>
+
+  <div class="box">
+    <h3>Secure Platform</h3>
+    <p>Your information is protected.</p>
+  </div>
+
+  <div class="box">
+    <h3>24/7 Support</h3>
+    <p>We are always here to help.</p>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Sherry Website. All Rights Reserved.</p>
-</footer>
-
-<script src="script.js"></script>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "sherry-project-1214.firebaseapp.com",
-  projectId: "sherry-project-1214",
-  storageBucket: "sherry-project-1214.firebasestorage.app",
-  messagingSenderId: "692003406873",
-  appId: "1:692003406873:web:e38c4b3806d963b5761688"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-document.getElementById("registerBtn").onclick = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Account created successfully!");
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-</script>
+  <p>© 2026 Sherry Website. All Rights Reserved.</p>
+</footer></body>
 
 </body><img src="images/banner.jpg" alt="Sherry Website Banner" width="100%">
 </htm</html><a href="login.html">Login</a>
