@@ -188,3 +188,14 @@ footer{
     margin:10px 0;
     font-size:18px;
 }
+.footer-content{
+    text-align:center;
+    line-height:2;
+}
+
+footer{
+    background:#0d1b2a;
+    color:white;
+    padding:40px 20px;
+    margin-top:40px;
+}
