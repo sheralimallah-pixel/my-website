@@ -38,7 +38,7 @@ nav a{
 nav a:hover{
     color:#ffd43b;
 }
-
+<a href="index.html" class="active">Home</a>
 .hero{
     background:linear-gradient(rgba(13,110,253,.8),rgba(13,110,253,.8)),url("images/banner.jpg");
     background-size:cover;
