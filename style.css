@@ -219,3 +219,37 @@ header h1{
     background:white;
     color:#0d6efd;
 }
+/* Statistics Section */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    padding:60px 20px;
+    background:#f8f9fa;
+}
+
+.stat-box{
+    width:220px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-8px);
+}
+
+.stat-box h2{
+    color:#0d6efd;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    font-size:18px;
+}
