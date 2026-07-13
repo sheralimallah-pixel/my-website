@@ -320,3 +320,12 @@ header h1{
     font-size:50px;
     margin-bottom:15px;
 }
+.card{
+    border:none;
+    border-radius:15px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    transition:0.3s;
+}
