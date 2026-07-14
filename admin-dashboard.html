@@ -44,7 +44,13 @@ border-radius:5px;
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import {
+getFirestore,
+collection,
+getDocs,
+doc,
+updateDoc
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 const firebaseConfig = {
 apiKey:"AIzaSyARX24b0EnCmh-3WcYfy9wtgj5vpHUNEPQ",
@@ -75,10 +81,20 @@ container.innerHTML += `
 
 <b>Method:</b> ${data.method}<br><br>
 
-<b>Status:</b> ${data.status}
+<b>Status:</b>
+<span id="status-${doc.id}">${data.status}</span>
+<br><br>
+
+<button onclick="approveDeposit('${doc.id}')">
+✅ Approve
+</button>
+
+<button onclick="rejectDeposit('${doc.id}')">
+❌ Reject
+</button>
 
 </div>
-`;
+`;`
 
 });
 
