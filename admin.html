@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Login</title>
 
+<style>
+body{
+font-family:Arial;
+background:#0d6efd;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:25px;
+border-radius:10px;
+width:350px;
+}
+
+input,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+box-sizing:border-box;
+}
+
+button{
+background:#0d6efd;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+
+<h2>Admin Login</h2>
+
+<input type="email" id="email" placeholder="Admin Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button id="loginBtn">Login</button>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey:"AIzaSyARX24b0EnCmh-3WcYfy9wtgj5vpHUNEPQ",
+authDomain:"sherry-project-1214.firebaseapp.com",
+projectId:"sherry-project-1214",
+storageBucket:"sherry-project-1214.firebasestorage.app",
+messagingSenderId:"692003406873",
+appId:"1:692003406873:web:1addf2cb2437cfe1761688"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("loginBtn").onclick = () => {
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+window.location.href="admin-dashboard.html";
+})
+
+.catch((error)=>{
+alert(error.message);
+});
+
+}
+
+</script>
+
+</body>
+</html>
