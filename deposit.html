@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deposit - SKR INTERNATIONAL</title>
 
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0d6efd;
+}
+.container{
+max-width:400px;
+margin:40px auto;
+background:#fff;
+padding:20px;
+border-radius:10px;
+}
+h2{
+text-align:center;
+color:#0d6efd;
+}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+box-sizing:border-box;
+}
+button{
+width:100%;
+padding:12px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Deposit Request</h2>
+
+<input type="number" id="amount" placeholder="Enter Amount">
+
+<select id="method">
+<option>JazzCash</option>
+<option>EasyPaisa</option>
+<option>Bank Transfer</option>
+</select>
+
+<button id="depositBtn">Submit Deposit</button>
+
+<br><br>
+
+<button onclick="window.location.href='dashboard.html'">
+Back to Dashboard
+</button>
+
+</div>
+
+<script>
+document.getElementById("depositBtn").onclick=function(){
+
+const amount=document.getElementById("amount").value;
+const method=document.getElementById("method").value;
+
+if(amount==""){
+alert("Please enter amount");
+return;
+}
+
+alert(
+"Deposit Request Submitted\n\nAmount: "+amount+
+"\nMethod: "+method
+);
+
+}
+</script>
+
+</body>
+</html>
