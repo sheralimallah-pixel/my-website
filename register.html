@@ -126,11 +126,23 @@ if(password.length<6){
 }
 
 createUserWithEmailAndPassword(auth,email,password)
+.then(async (userCredential)=>{
 
-.then(()=>{
+    await setDoc(doc(db,"users",userCredential.user.uid),{
+
+        name:name,
+        email:email,
+        balance:0,
+        createdAt:new Date().toISOString()
+
+    });
+
     alert("Account Created Successfully!");
     window.location.href="login.html";
+
 })
+
+
 
 .catch((error)=>{
     alert(error.message);
