@@ -1,3 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - SKR INTERNATIONAL</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0d6efd;
+}
+
+.header{
+background:#fff;
+padding:20px;
+text-align:center;
+font-size:30px;
+font-weight:bold;
+color:#0d6efd;
+box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.container{
+max-width:500px;
+margin:30px auto;
+padding:15px;
+}
+
+.card{
+background:#fff;
+padding:25px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.card h2{
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:12px;
+border:none;
+border-radius:8px;
+font-size:18px;
+background:#0d6efd;
+color:#fff;
+cursor:pointer;
+}
+
+button:hover{
+background:#084298;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+SKR INTERNATIONAL
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Welcome</h2>
+<p id="email">Loading...</p>
+</div>
+
 <div class="card">
 
 <button onclick="window.location.href='deposit.html'">
@@ -13,3 +91,46 @@
 </button>
 
 </div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey:"AIzaSyARX24b0EnCmh-3WcYfy9wtgj5vpHUNEPQ",
+authDomain:"sherry-project-1214.firebaseapp.com",
+projectId:"sherry-project-1214",
+storageBucket:"sherry-project-1214.firebasestorage.app",
+messagingSenderId:"692003406873",
+appId:"1:692003406873:web:1addf2cb2437cfe1761688"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+document.getElementById("email").innerHTML="Logged in as: "+user.email;
+}else{
+window.location.href="login.html";
+}
+
+});
+
+document.getElementById("logoutBtn").addEventListener("click",()=>{
+
+signOut(auth).then(()=>{
+alert("Logged Out Successfully");
+window.location.href="login.html";
+});
+
+});
+
+</script>
+
+</body>
+</html>
