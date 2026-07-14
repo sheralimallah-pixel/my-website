@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
 
+<style>
+body{
+font-family:Arial;
+background:#0d6efd;
+margin:0;
+padding:20px;
+}
+
+h2{
+color:white;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+}
+
+button{
+padding:10px 15px;
+margin-top:10px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:5px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<div id="deposits"></div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey:"AIzaSyARX24b0EnCmh-3WcYfy9wtgj5vpHUNEPQ",
+authDomain:"sherry-project-1214.firebaseapp.com",
+projectId:"sherry-project-1214",
+storageBucket:"sherry-project-1214.firebasestorage.app",
+messagingSenderId:"692003406873",
+appId:"1:692003406873:web:1addf2cb2437cfe1761688"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const container = document.getElementById("deposits");
+
+const querySnapshot = await getDocs(collection(db,"deposits"));
+
+querySnapshot.forEach((doc)=>{
+
+const data = doc.data();
+
+container.innerHTML += `
+<div class="card">
+
+<b>Email:</b> ${data.email}<br><br>
+
+<b>Amount:</b> ${data.amount}<br><br>
+
+<b>Method:</b> ${data.method}<br><br>
+
+<b>Status:</b> ${data.status}
+
+</div>
+`;
+
+});
+
+</script>
+
+</body>
+</html>
