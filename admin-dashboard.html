@@ -42,7 +42,49 @@ border-radius:5px;
 <div id="deposits"></div>
 
 <script type="module">
+window.approveDeposit = async function(id){
 
+try{
+
+await updateDoc(doc(db,"deposits",id),{
+
+status:"Approved"
+
+});
+
+document.getElementById("status-"+id).innerHTML="Approved";
+
+alert("Deposit Approved");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+window.rejectDeposit = async function(id){
+
+try{
+
+await updateDoc(doc(db,"deposits",id),{
+
+status:"Rejected"
+
+});
+
+document.getElementById("status-"+id).innerHTML="Rejected";
+
+alert("Deposit Rejected");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 import {
 getFirestore,
