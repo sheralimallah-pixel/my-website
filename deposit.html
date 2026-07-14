@@ -62,24 +62,12 @@ Back to Dashboard
 </button>
 
 </div>
+<script type="module">
 
-<script>
-document.getElementById("depositBtn").onclick=function(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-const amount=document.getElementById("amount").value;
-const method=document.getElementById("method").value;
-
-if(amount==""){
-alert("Please enter amount");
-return;
-}
-
-alert(
-"Deposit Request Submitted\n\nAmount: "+amount+
-"\nMethod: "+method
-);
-
-}
 </script>
 
 </body>
