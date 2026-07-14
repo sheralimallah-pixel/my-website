@@ -108,7 +108,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const db = getFirestore(app);
 document.getElementById("registerBtn").addEventListener("click", ()=>{
 
 const name = document.getElementById("name").value.trim();
