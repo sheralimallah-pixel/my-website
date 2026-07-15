@@ -79,15 +79,21 @@ SKR INTERNATIONAL
 
 <div class="container">
 
-<div class="card">
-<h2>Welcome</h2>
-<p id="email">Loading...</p>
-</div>
+
 
 <div class="card">
 
 <button onclick="window.location.href='deposit.html'">
 💰 Deposit
+  <div class="card">
+<h2>💰 Wallet Balance</h2>
+
+<h1 id="balance">
+Rs. 0
+</h1>
+
+<p>Your Current Balance</p>
+  </div>
 </button>
 
 <button onclick="window.location.href='withdraw.html'">
@@ -107,7 +113,7 @@ SKR INTERNATIONAL
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 import { getAuth,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 import { getFirestore,doc,getDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-const const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyARX24b0EnCmh-3WcYfy9wtgj5vpHUNEPQ",
   authDomain: "sherry-project-1214.firebaseapp.com",
   projectId: "sherry-project-1214",
@@ -124,7 +130,29 @@ onAuthStateChanged(auth,(user)=>{
 
 if(user){
 document.getElementById("email").innerHTML="Logged in as: "+user.email;
-}else{const docRef = doc(db,"users",user.uid);
+if(user){
+
+document.getElementById("email").innerHTML =
+"Logged in as: " + user.email;
+
+const docRef = doc(db,"users",user.uid);
+
+getDoc(docRef).then((docSnap)=>{
+
+if(docSnap.exists()){
+
+document.getElementById("balance").innerHTML =
+"Rs. " + docSnap.data().balance;
+
+}
+
+});
+
+}else{
+
+window.location.href="login.html";
+
+}
 
 getDoc(docRef).then((docSnap)=>{
 
