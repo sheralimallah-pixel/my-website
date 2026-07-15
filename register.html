@@ -139,6 +139,16 @@ createUserWithEmailAndPassword(auth,email,password)
 
     });
 
+.then(async (userCredential)=>{
+
+    await setDoc(doc(db,"users",userCredential.user.uid),{
+
+        name: name,
+        email: email,
+        balance: 0
+
+    });
+
     alert("Account Created Successfully!");
     window.location.href="login.html";
 
