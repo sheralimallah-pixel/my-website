@@ -150,7 +150,8 @@ return;
 }
 
 try{
-
+alert(email);
+alert(password);
 const userCredential = await createUserWithEmailAndPassword(auth,email,password);
 
 await setDoc(doc(db,"users",userCredential.user.uid),{
