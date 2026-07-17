@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Register - SKR INTERNATIONAL</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#0d6efd;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+background:#0d6efd;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
 .register-box{
-    background:#fff;
-    width:350px;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+background:#fff;
+width:350px;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
 h2{
-    text-align:center;
-    color:#0d6efd;
-    margin-bottom:20px;
+text-align:center;
+color:#0d6efd;
+margin-bottom:20px;
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    background:#0d6efd;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+background:#0d6efd;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
 }
 
 button:hover{
-    background:#084298;
+background:#084298;
 }
 
 p{
-    text-align:center;
-    margin-top:15px;
+text-align:center;
+margin-top:15px;
 }
 
 a{
-    color:#0d6efd;
-    text-decoration:none;
+color:#0d6efd;
+text-decoration:none;
 }
+
 </style>
+
 </head>
 
 <body>
@@ -77,101 +82,35 @@ a{
 
 <h2>Create Account</h2>
 
-<input type="text" id="name" placeholder="Full Name">
+<input
+type="text"
+id="name"
+placeholder="Full Name">
 
-<input type="email" id="email" placeholder="Email">
+<input
+type="email"
+id="email"
+placeholder="Email">
 
-<input type="password" id="password" placeholder="Password">
+<input
+type="password"
+id="password"
+placeholder="Password">
 
-<button id="registerBtn">Register</button>
+<button id="registerBtn">
+Register
+</button>
 
 <p>
+
 Already have an account?
-<a href="login.html">Login</a>
+
+<a href="login.html">
+Login
+</a>
+
 </p>
 
 </div>
 
 <script type="module">
-
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-import {
-getFirestore,
-doc,
-setDoc
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-const db = getFirestore(app);
-
-const const firebaseConfig = {
-  apiKey: "AIzaSyARX24b0EnCmh-3WcYfy9wtgj5vpHUNEPQ",
-  authDomain: "sherry-project-1214.firebaseapp.com",
-  projectId: "sherry-project-1214",
-  storageBucket: "sherry-project-1214.firebasestorage.app",
-  messagingSenderId: "692003406873",
-  appId: "1:692003406873:web:1addf2cb2437cfe1761688",
-  measurementId: "G-QYE7Y2DKHT"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-document.getElementById("registerBtn").addEventListener("click", ()=>{
-
-const name = document.getElementById("name").value.trim();
-const email = document.getElementById("email").value.trim();
-const password = document.getElementById("password").value;
-
-if(name==="" || email==="" || password===""){
-    alert("Please fill all fields.");
-    return;
-}
-
-if(password.length<6){
-    alert("Password must be at least 6 characters.");
-    return;
-}
-
-createUserWithEmailAndPassword(auth,email,password)
-.then(async (userCredential)=>{
-
-    await setDoc(doc(db,"users",userCredential.user.uid),{
-
-        name:name,
-        email:email,
-        balance:0,
-        createdAt:new Date().toISOString()
-
-    });
-
-.then(async (userCredential)=>{
-
-await setDoc(doc(db,"users",userCredential.user.uid),{
-
-name:name,
-email:email,
-balance:0
-
-});
-
-alert("Account Created Successfully!");
-
-window.location.href="login.html";
-
-})
-
-.catch((error)=>{
-    alert(error.message);
-});
-
-});
-
-</script>
-
-</body>
-</html>
